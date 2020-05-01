@@ -21,7 +21,7 @@ $.ajax({
 let lat = "41.85";
 let lon = "-87.65";
 
-let uvIndexUrl = `http://api.openweathermap.org/data/2.5/uvi?appid=${apiKey}&lat=${lat}&lon=${lon}`;
+let uvIndexUrl = `https://api.openweathermap.org/data/2.5/uvi?appid=${apiKey}&lat=${lat}&lon=${lon}`;
 $.ajax({
     url: uvIndexUrl,
     method: "GET"
@@ -31,6 +31,11 @@ $.ajax({
 
 })
 
+$(".saveBtn").on("click", function (event) {
+    event.preventDefault();
+    
+    let buttonID = $(this).attr("id");
+    console.log(buttonID);
 
 // $.ajax({
 //     url: "w/e api you are requesting",
@@ -50,11 +55,11 @@ $.ajax({
 //    function buildCardDiv(data) {
 //        for (let i = 0; i < data.length; i++) {
 //            const element = data[i];
-//            element.tempF;
+//         //    element.tempF;
 //            buildCard(element);
 //        }  
 //    }
-//    buildCardDiv();
+// //    buildCardDiv();
 
 
 
