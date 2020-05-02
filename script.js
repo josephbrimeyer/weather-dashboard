@@ -12,11 +12,11 @@
 
 
 // let searchResult = $("");
+let apiKey = "f61c25ccc3ebc66abfbc574449b8e000";
+let cityName = "Chicago";
+let searchResult;
 let lat = "41.85";
 let lon = "-87.65";
-let cityName = "Chicago";
-let apiKey = "f61c25ccc3ebc66abfbc574449b8e000";
-// let searchResult = "";
 
 // let searchBtn = $("");
 function getWeatherByCity() {
@@ -27,6 +27,7 @@ function getWeatherByCity() {
     }).then(function (response) {
 
         console.log(response);
+        getWeatherByLatLon();
 
     })
 }
@@ -49,13 +50,17 @@ function getWeatherByLatLon() {
     }).then(function (response) {
 
         console.log(response);
+        getWeatherFiveDay()
 
     })
 }
 $("#search-button").on("click", function (event) {
     event.preventDefault();
-    let searchResult = $("#search-city").val().trim();
+    let searchCity = $("#search.city").val().trim();
+    searchResult = JSON.stringify("#search-city");
     console.log(searchResult);
+
+    getWeatherByCity()
 
 });
 // }
