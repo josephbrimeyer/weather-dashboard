@@ -1,20 +1,21 @@
-//  ......id's to declare....
-//  city, date
+//  ......id's to declare with jQuery....
+//  city, date, icon
 //  temperature
 //  humidity
 //  wind speed
+//  uv
 //  ................
+//  need to get and set the values to a variable for lat and lon from the object of getWeatherByCity and concatinate to the function of getWeatherByLatLon.
 //  lon
 //  lat
+//  set a new variable for lat and lon.
 //  ..................
-//  uv
-//  
 
 
-// let searchResult = $("");
+let searchResult = $("");
 let apiKey = "f61c25ccc3ebc66abfbc574449b8e000";
 let cityName = "Chicago";
-let searchResult;
+// let searchResult;
 let lat = "41.85";
 let lon = "-87.65";
 
@@ -57,12 +58,13 @@ function getWeatherByLatLon() {
 $("#search-button").on("click", function (event) {
     event.preventDefault();
     let searchCity = $("#search.city").val().trim();
-    searchResult = JSON.stringify("#search-city");
+    searchResult = ("#search-city");
     console.log(searchResult);
 
-    getWeatherByCity()
+    
 
 });
+getWeatherByCity()
 // }
 
 // }
