@@ -57,9 +57,9 @@ function getWeatherByLatLon() {
 }
 $("#search-button").on("click", function (event) {
     event.preventDefault();
-    let searchCity = $("#search.city").val();
-    searchResult = ("#search-city");
-    console.log(searchResult);
+    let searchCity = $("#search-city").val().trim();
+    // searchResult = ("#search-city");
+    console.log(searchCity);
 
     
 
