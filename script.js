@@ -1,3 +1,15 @@
+//  ......id's to declare....
+//  city, date
+//  temperature
+//  humidity
+//  wind speed
+//  ................
+//  lon
+//  lat
+//  ..................
+//  uv
+//  
+
 let cityName = "Chicago";
 let apiKey = "f61c25ccc3ebc66abfbc574449b8e000";
 let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`;
@@ -33,7 +45,7 @@ $.ajax({
 
 $(".saveBtn").on("click", function (event) {
     event.preventDefault();
-    
+
     let buttonID = $(this).attr("id");
     console.log(buttonID);
 
