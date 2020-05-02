@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>"
+    <script src="script.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
@@ -17,14 +19,12 @@
     <nav class="navbar navbar-light bg-dark text-center">
         <span class="navbar-brand mb-0 h1 text-center" id="nav">Weather Dashboard</span>
     </nav>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>"
-    <script src="script.js"></script>
     <div class="container">
         <div class="row">
             <div class="form-group jumbotron col-md-4">
                 <form class="form-inline">
                     <input class="form-control mr-sm-2" type="search" placeholder="Enter City" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <button class="btn btn-outline-success my-2 my-sm-0" id="search-button" type="submit">Search</button>
                     <ul>
                         <li>some text</li>
                         <li>some text</li>
@@ -90,6 +90,7 @@
                 </div>
             </div>
         </div>
+            
 </body>
 
 </html>

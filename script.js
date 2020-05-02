@@ -9,7 +9,7 @@
 //  ..................
 //  uv
 //  
-
+let searchCity = "";
 let cityName = "Chicago";
 let apiKey = "f61c25ccc3ebc66abfbc574449b8e000";
 let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`;
@@ -43,11 +43,12 @@ $.ajax({
 
 })
 
-$(".saveBtn").on("click", function (event) {
+$("#search-button").on("click", function (event) {
     event.preventDefault();
 
     let buttonID = $(this).attr("id");
     console.log(buttonID);
+});
 
 // $.ajax({
 //     url: "w/e api you are requesting",
