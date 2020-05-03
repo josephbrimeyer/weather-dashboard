@@ -1,8 +1,9 @@
-
-//  declare the variables...
+//  declared global variables...
 let apiKey = "f61c25ccc3ebc66abfbc574449b8e000";
 let cityName;
 let searchCity = "";
+let cityWeather = {};
+
 // set the event listener...
 $("#search-button").on("click", function (event) {
     event.preventDefault();
@@ -10,7 +11,8 @@ $("#search-button").on("click", function (event) {
     console.log(searchCity);
     getWeatherByCity()
 });
-//  this function calls out to 2 api's to get data for main card.
+
+//  this function calls out to 2 api's to get all data for the main card.
 function getWeatherByCity() {
     let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=${apiKey}`;
     $.ajax({
@@ -20,7 +22,7 @@ function getWeatherByCity() {
         let lat = response.coord.lat;
         let lon = response.coord.lon;
         let cityName = searchCity + "";
-        let tempF = ((response.main.temp - 273.15) * 1.80 + 32).toFixed(2);
+        let tempF = ((response.main.temp - 273.15) * 1.80 + 32).toFixed();
         let humidity = response.main.humidity;
         let windSpeed = response.wind.speed; 
         let icon = response.weather[0].icon;
@@ -28,7 +30,7 @@ function getWeatherByCity() {
         $("#temperature").text(tempF + " °F");
         $("#humidity").text(humidity + " %");
         $("#windspeed").text(windSpeed + " MPH");
-        $("#city").text(cityName + "  ");
+        $("#city").text(cityName + ",  ");
         let date = new Date().toLocaleString();
         $("#date").text(date + " ");
         $("#img").attr("src", iconUrl);
@@ -43,15 +45,14 @@ function getWeatherByCity() {
             let uvValue = response2.value;
             $("#uv").text(uvValue);
             // if (uvValue < 3) {
-            //     uwValue.style.backgroundColor = 'green';
+            //     $("#uv").text.style.backgroundColor = 'green';
             // } else if (uvValue < 6) {
-            //     uwValue.style.backgroundColor = 'yellow'; 
+            //     $("#uv").text.style.backgroundColor = 'yellow'; 
             // } else if (uwValue < 8) {
-            //     uwValue.style.backgroundColor = 'orange';
+            //     $("#uv").text.style.backgroundColor = 'orange';
             // } else if (uwValue < 11) {
-            //     uwValue.style.backgroundColor = 'red'; 
-            // } else if (uwValue => 11) {
-            //     uwValue.style.backgroundColor = 'purple';
+            //     $("#uv").text.style.backgroundColor = 'red'; 
+            // } else { $("#uv").text.style.backgroundColor = 'purple';
             // }
 
             console.log(response);
@@ -68,6 +69,7 @@ function getWeatherFiveDay() {
     }).then(function (response) {
 
         console.log(response);
+        searchCity = "";
 
     })
 }
