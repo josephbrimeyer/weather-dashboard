@@ -4,11 +4,16 @@
 }
 
 h4 {
-    color: darkblue;
+    color: darkgreen;
     font: bold;
 }
 
 h6 {
-    color: darkgreen;
+    color: darkblue;
     font: bold;
 }
+
+.jumbotron {
+    background-color: burlywood;
+}
+
