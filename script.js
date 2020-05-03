@@ -48,13 +48,13 @@ function getWeatherByCity() {
             
             if (i < 3) {
                 $("#uv").addClass("green");
-            } if (i < 6) {
+            } else if (i < 6) {
                 $("#uv").addClass("yellow"); 
-            } if (i < 8) {
+            } else if (i < 8) {
                 $("#uv").addClass("orange");
-            } if (i < 11) {
+            } else if (i < 11) {
                 $("#uv").addClass("red"); 
-            } if (i >= 11) {
+            } else {
                  $("#uv").addClass("purple");
             }
             console.log(i);
