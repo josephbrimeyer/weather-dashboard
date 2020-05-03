@@ -44,16 +44,20 @@ function getWeatherByCity() {
         }).then(function (response2) {
             let uvValue = response2.value;
             $("#uv").text(uvValue);
-            // if (uvValue < 3) {
-            //     $("#uv").text.style.backgroundColor = 'green';
-            // } else if (uvValue < 6) {
-            //     $("#uv").text.style.backgroundColor = 'yellow'; 
-            // } else if (uwValue < 8) {
-            //     $("#uv").text.style.backgroundColor = 'orange';
-            // } else if (uwValue < 11) {
-            //     $("#uv").text.style.backgroundColor = 'red'; 
-            // } else { $("#uv").text.style.backgroundColor = 'purple';
-            // }
+            let i = uvValue;
+            
+            if (i < 3) {
+                $("#uv").addClass("green");
+            } if (i < 6) {
+                $("#uv").addClass("yellow"); 
+            } if (i < 8) {
+                $("#uv").addClass("orange");
+            } if (i < 11) {
+                $("#uv").addClass("red"); 
+            } if (i >= 11) {
+                 $("#uv").addClass("purple");
+            }
+            console.log(i);
 
             console.log(response);
             getWeatherFiveDay();

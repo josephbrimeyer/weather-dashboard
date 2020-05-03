@@ -20,3 +20,27 @@ h6 {
 #main-card {
     background-color: silver;
 }
+
+.green {
+    color: green;
+}
+
+.yellow {
+    background-color: yellow;
+    color: white; 
+}
+
+.orange {
+    background-color: orange;
+    color: white;
+}
+
+.red {
+    background-color: red;
+    color: white;
+}
+
+.purple {
+    background-color: purple;
+    color: white;
+}
