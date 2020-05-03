@@ -23,24 +23,30 @@ h6 {
 
 .green {
     color: green;
+    color: white;
+    width: 75px;
 }
 
 .yellow {
     background-color: yellow;
-    color: white; 
+    color: white;
+    width: 75px; 
 }
 
 .orange {
     background-color: orange;
     color: white;
+    width: 75px;
 }
 
 .red {
     background-color: red;
     color: white;
+    width: 75px;
 }
 
 .purple {
     background-color: purple;
     color: white;
+    width: 75px;
 }
