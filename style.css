@@ -3,4 +3,12 @@
     text-align: center;
 }
 
-span {}
+h4 {
+    color: darkblue;
+    font: bold;
+}
+
+h6 {
+    color: darkgreen;
+    font: bold;
+}

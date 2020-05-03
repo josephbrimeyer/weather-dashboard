@@ -10,7 +10,7 @@ $("#search-button").on("click", function (event) {
     console.log(searchCity);
     getWeatherByCity()
 });
-//  this function 
+//  this function calls out to 2 api's to get data for main card.
 function getWeatherByCity() {
     let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=${apiKey}`;
     $.ajax({
@@ -20,37 +20,35 @@ function getWeatherByCity() {
         let lat = response.coord.lat;
         let lon = response.coord.lon;
         let cityName = searchCity + "";
-        let temperature = response.main.temp;
+        let tempF = ((response.main.temp - 273.15) * 1.80 + 32).toFixed(2);
         let humidity = response.main.humidity;
-        let windSpeed = response.wind.speed;
+        let windSpeed = response.wind.speed; 
         let icon = response.weather[0].icon;
         let iconUrl = `http://openweathermap.org/img/wn/${icon}.png`;
-        $("#temperature").text(temperature);
-        $("#humidity").text(humidity);
-        $("#windspeed").text(windSpeed);
-        $("#city").text(cityName);
+        $("#temperature").text(tempF + " °F");
+        $("#humidity").text(humidity + " %");
+        $("#windspeed").text(windSpeed + " MPH");
+        $("#city").text(cityName + "  ");
         let date = new Date().toLocaleString();
-        $("#date").text(date);
+        $("#date").text(date + " ");
         $("#img").attr("src", iconUrl);
         console.log(response);
         let queryLat = lat;
-    let queryLon = lon;
-    let uvIndexUrl = `https://api.openweathermap.org/data/2.5/uvi?appid=${apiKey}&lat=${queryLat}&lon=${queryLon}`;
-    $.ajax({
-        url: uvIndexUrl,
-        method: "GET"
-    }).then(function (response2) {
-        let uvValue = response2.value;
-        $("#uv").text(uvValue);
+        let queryLon = lon;
+        let uvIndexUrl = `https://api.openweathermap.org/data/2.5/uvi?appid=${apiKey}&lat=${queryLat}&lon=${queryLon}`;
+        $.ajax({
+            url: uvIndexUrl,
+            method: "GET"
+        }).then(function (response2) {
+            let uvValue = response2.value;
+            $("#uv").text(uvValue);
 
-        console.log(response);
-        getWeatherFiveDay();
-    })
+            console.log(response);
+            getWeatherFiveDay();
+        })
     })
 }
-function getWeatherByLatLon() {
-    
-}
+// this function calls another api and populates the 5 day forcast. 
 function getWeatherFiveDay() {
     let fiveDayUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${searchCity}&appid=${apiKey}`;
     $.ajax({
