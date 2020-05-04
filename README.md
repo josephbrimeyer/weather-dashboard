@@ -1,5 +1,6 @@
 # Weather-Dashboard
 
+
 ## Description 
 
 Weather-Dashboard is a weather application that that allows the user to search for the weather conditions of any city int he world.  This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.  The app calls on three weather API's to pull data and display it for the user.  The information provided includes the city searched, the date, time, and an icon illustrating the current weather conditions.  The app also lists the temperature, humidity, wind speed, UV level, and a 5-day forecast.  The searches are stored in the browser and the data is retained upon refreshing the browser page.  The Weather-Dashboard utilizes HTML, CSS, JavaScript, jQuery, and OpenWeather API.  In the future, I will update this app to incorporate better styling and increase the number of data-fields that are displayed.
