@@ -1,6 +1,4 @@
-# Your Project Title
-
-The title of this project is 'Weather-Dashboard'.
+# Weather-Dashboard
 
 ## Description 
 
