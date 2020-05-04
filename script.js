@@ -75,11 +75,10 @@ function getWeatherFiveDay() {
         let buildCardDiv;
         // [ of objects ]
         let Resdata = response3.list;
+        // Resdata.push(cityData);
         console.log(Resdata);
+        // console.log(cityData)
 
-        //searchCity = "";
-        //     console.log(Resdata);
-        //     buildCardDiv(Resdata)
     })
     function buildCard(data) {
         let cardEle = $("<div class='card'");
@@ -87,14 +86,14 @@ function getWeatherFiveDay() {
         //  append to the card div 5 day forecast
     }
     // let data = Resdata;
-    function buildCardDiv(data) {
-        for (let i = 0; i < data.length; i++) {
-            const element = data[i];
-            //    element.tempF;
-            buildCard(element);
-        }
-    }
-    buildCardDiv();
+    // function buildCardDiv(data) {
+    //     for (let i = 0; i < data.length; i++) {
+    //         const element = data[i];
+    //         //    element.tempF;
+    //         buildCard(element);
+    //     }
+    // }
+    // buildCardDiv();
 }
 
 
