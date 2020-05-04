@@ -8,7 +8,7 @@ let cityWeather = {};
 $("#search-button").on("click", function (event) {
     event.preventDefault();
     searchCity = $("#search-city").val().trim();
-    console.log(searchCity);
+
     getWeatherByCity()
 });
 
@@ -19,14 +19,16 @@ function getWeatherByCity() {
         url: weatherUrl,
         method: "GET"
     }).then(function (response) {
+
         let lat = response.coord.lat;
         let lon = response.coord.lon;
         let cityName = searchCity + "";
         let tempF = ((response.main.temp - 273.15) * 1.80 + 32).toFixed();
         let humidity = response.main.humidity;
-        let windSpeed = response.wind.speed; 
+        let windSpeed = response.wind.speed;
         let icon = response.weather[0].icon;
         let iconUrl = `http://openweathermap.org/img/wn/${icon}.png`;
+
         $("#temperature").text(tempF + " °F");
         $("#humidity").text(humidity + " %");
         $("#windspeed").text(windSpeed + " MPH");
@@ -34,7 +36,7 @@ function getWeatherByCity() {
         let date = new Date().toLocaleString();
         $("#date").text(date + " ");
         $("#img").attr("src", iconUrl);
-        console.log(response);
+
         let queryLat = lat;
         let queryLon = lon;
         let uvIndexUrl = `https://api.openweathermap.org/data/2.5/uvi?appid=${apiKey}&lat=${queryLat}&lon=${queryLon}`;
@@ -42,24 +44,23 @@ function getWeatherByCity() {
             url: uvIndexUrl,
             method: "GET"
         }).then(function (response2) {
+
             let uvValue = response2.value;
             $("#uv").text(uvValue);
             let i = uvValue;
-            
+
             if (i < 3) {
                 $("#uv").addClass("green");
             } else if (i < 6) {
-                $("#uv").addClass("yellow"); 
+                $("#uv").addClass("yellow");
             } else if (i < 8) {
                 $("#uv").addClass("orange");
             } else if (i < 11) {
-                $("#uv").addClass("red"); 
+                $("#uv").addClass("red");
             } else {
-                 $("#uv").addClass("purple");
+                $("#uv").addClass("purple");
             }
-            console.log(i);
 
-            console.log(response);
             getWeatherFiveDay();
         })
     })
@@ -70,38 +71,32 @@ function getWeatherFiveDay() {
     $.ajax({
         url: fiveDayUrl,
         method: "GET"
-    }).then(function (response) {
+    }).then(function (response3) {
+        let buildCardDiv;
+        // [ of objects ]
+        let Resdata = response3.list;
+        console.log(Resdata);
 
-        console.log(response);
-        searchCity = "";
-
+        //searchCity = "";
+        //     console.log(Resdata);
+        //     buildCardDiv(Resdata)
     })
+    function buildCard(data) {
+        let cardEle = $("<div class='card'");
+        let h1Ele = $("tag" + data.name + "endTag");
+        //  append to the card div 5 day forecast
+    }
+    // let data = Resdata;
+    function buildCardDiv(data) {
+        for (let i = 0; i < data.length; i++) {
+            const element = data[i];
+            //    element.tempF;
+            buildCard(element);
+        }
+    }
+    buildCardDiv();
 }
 
-// ..................................................................................................
-// $.ajax({
-//     url: "w/e api you are requesting",
-//     method: "GET"
-//    }).then(function(Resdata){
-//     // [ of objects ]
-//        // let Resdata = [{} sent from api]
-//     console.log(Resdata);
-//     buildCardDiv(Resdata)
-//    })
-//    function buildCard(data) {
-//        let cardEle = $("<div class='card'");
-//        // PSEUDO CODE: let h1Ele = $("tag" + data.name + "endTag");
-//        // append to the card div 5 day forecast
-//    }
-//    // let data = Resdata;
-//    function buildCardDiv(data) {
-//        for (let i = 0; i < data.length; i++) {
-//            const element = data[i];
-//         //    element.tempF;
-//            buildCard(element);
-//        }  
-//    }
-// //    buildCardDiv();
 
 
 
