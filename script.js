@@ -72,19 +72,35 @@ function getWeatherFiveDay() {
         url: fiveDayUrl,
         method: "GET"
     }).then(function (response3) {
-        let buildCardDiv;
-        // [ of objects ]
-        let Resdata = response3.list;
-        // Resdata.push(cityData);
-        console.log(Resdata);
-        // console.log(cityData)
+        $(".five-day").each(function( index ) {
+            console.log(index);
+            let Resdata = response3.list[index];
+            let dateElem = Resdata.dt_txt;
+            let icon = Resdata.weather[0].icon;
+            let iconUrl = `http://openweathermap.org/img/wn/${icon}.png`;
+            let temp = ((Resdata.main.temp  - 273.15) * 1.80 + 32).toFixed();
+            let humidity = Resdata.main.humidity;
 
-    })
-    function buildCard(data) {
-        let cardEle = $("<div class='card'");
-        let h1Ele = $("tag" + data.name + "endTag");
-        //  append to the card div 5 day forecast
-    }
+            $(this).find(".date").text(dateElem);
+            $(this).find(".weather-icon").attr("src", iconUrl);
+            $(this).find(".temperature").text(temp);
+            $(this).find(".humidity").text(humidity);
+
+
+
+            console.log(Resdata)
+          });  
+        
+        
+         
+ })
+}
+ 
+ // let buildCardDiv;
+        // // [ of objects ]
+        // 
+        // console.log(Resdata);
+        // Resdata.push(cityData);
     // let data = Resdata;
     // function buildCardDiv(data) {
     //     for (let i = 0; i < data.length; i++) {
@@ -94,8 +110,23 @@ function getWeatherFiveDay() {
     //     }
     // }
     // buildCardDiv();
-}
-
+// }
+// function buildCard(data) {
+//     let textTest = "Some quick example text to build on the card title and make up the bulk of the card's content."
+//     let cardEle = $("<div class='card' style='width: 18rem;'>");
+//     let h1Ele = $("<h5 class='card-title'>" + data.name + "endTag");
+//     let pEle = $(`<p class="card-text">${textTest}/p>`)
+//     //  append to the card div 5 day forecast
+// }
+// let fullCard = $(`<div class="card" style="width: 18rem;">
+//   <div class="card-body">
+//     <h5 class="card-title">${}</h5>
+//     <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+//     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+//     <a href="#" class="card-link">Card link</a>
+//     <a href="#" class="card-link">Another link</a>
+//   </div>
+// </div>`)
 
 
 
