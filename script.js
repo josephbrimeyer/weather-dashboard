@@ -61,41 +61,45 @@ function getWeatherByCity() {
                 $("#uv").addClass("purple");
             }
 
-            getWeatherFiveDay();
+            // getWeatherFiveDay();
+            //            https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={YOUR API KEY}
         })
-    })
+        let fiveDayUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${queryLat}&lon=${queryLon}&exclude=current,minutely,hourly&appid=${apiKey}`;
+        $.ajax({
+            url: fiveDayUrl,
+            method: "GET"
+        }).then(function (response3) {
+            $(".five-day").each(function (index) {
+                console.log(response3);
+                let Resdata = response3.daily[index];
+                console.log(index);
+                console.log(Resdata);
+        //         let date = new Date().toLocaleString();
+        // $("#date").text(date + " ");
+                let dateElem = Resdata.dt;
+                let icon = Resdata.weather[0].icon;
+                let iconUrl = `http://openweathermap.org/img/wn/${icon}.png`;
+                let temp = ((Resdata.temp.day - 273.15) * 1.80 + 32).toFixed();
+                let humidity = Resdata.humidity;
+
+                $(this).find(".date").text(dateElem);
+                $(this).find(".weather-icon").attr("src", iconUrl);
+                $(this).find(".temperature").text(temp);
+                $(this).find(".humidity").text(humidity);
+
+                console.log(Resdata)
+
+            })
+            
+        });
+    });
 }
+
+
 // this function calls another api and populates the 5 day forcast. 
-function getWeatherFiveDay() {
-    let fiveDayUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${searchCity}&appid=${apiKey}`;
-    $.ajax({
-        url: fiveDayUrl,
-        method: "GET"
-    }).then(function (response3) {
-        $(".five-day").each(function( index ) {
-            console.log(index);
-            let Resdata = response3.list[index];
-            let dateElem = Resdata.dt_txt;
-            let icon = Resdata.weather[0].icon;
-            let iconUrl = `http://openweathermap.org/img/wn/${icon}.png`;
-            let temp = ((Resdata.main.temp  - 273.15) * 1.80 + 32).toFixed();
-            let humidity = Resdata.main.humidity;
-
-            $(this).find(".date").text(dateElem);
-            $(this).find(".weather-icon").attr("src", iconUrl);
-            $(this).find(".temperature").text(temp);
-            $(this).find(".humidity").text(humidity);
 
 
 
-            console.log(Resdata)
-          });  
-        
-        
-         
- })
-}
- 
  // let buildCardDiv;
         // // [ of objects ]
         // 
