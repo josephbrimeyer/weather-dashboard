@@ -29,8 +29,8 @@ function getWeatherByCity() {
         let icon = response.weather[0].icon;
         let iconUrl = `http://openweathermap.org/img/wn/${icon}.png`;
 
-        $("#temperature").text(tempF + " °F");
-        $("#humidity").text(humidity + " %");
+        $("#temperature").text(tempF + "°F");
+        $("#humidity").text(humidity + "%");
         $("#windspeed").text(windSpeed + " MPH");
         $("#city").text(cityName + ",  ");
         let date = new Date().toLocaleString();
@@ -84,8 +84,8 @@ function getWeatherByCity() {
 
                 $(this).find(".date").text(day);
                 $(this).find(".weather-icon").attr("src", iconUrl);
-                $(this).find(".temperature").text(temp);
-                $(this).find(".humidity").text(humidity);
+                $(this).find(".temperature").text(temp + "°F");
+                $(this).find(".humidity").text(humidity + "%");
 
                 
 
