@@ -26,6 +26,7 @@ Upon loading the browser page, the user can enter a city to get the weather repo
 ## Credits
 Open Weather: https://openweathermap.org/
 EPA: https://www.epa.gov/sunsafety/uv-index-scale-0
+Moment.js: https://momentjs.com/
 
 ## License
 

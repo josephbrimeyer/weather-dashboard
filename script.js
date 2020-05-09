@@ -70,24 +70,24 @@ function getWeatherByCity() {
             method: "GET"
         }).then(function (response3) {
             $(".five-day").each(function (index) {
-                console.log(response3);
-                let Resdata = response3.daily[index];
-                console.log(index);
+                let Resdata = response3.daily[index+1];
                 console.log(Resdata);
         //         let date = new Date().toLocaleString();
         // $("#date").text(date + " ");
                 let dateElem = Resdata.dt;
+                let day = moment.unix(dateElem).format('l');
+                // let currentDay = moment().format('MMMM Do YYYY');
                 let icon = Resdata.weather[0].icon;
                 let iconUrl = `http://openweathermap.org/img/wn/${icon}.png`;
                 let temp = ((Resdata.temp.day - 273.15) * 1.80 + 32).toFixed();
                 let humidity = Resdata.humidity;
 
-                $(this).find(".date").text(dateElem);
+                $(this).find(".date").text(day);
                 $(this).find(".weather-icon").attr("src", iconUrl);
                 $(this).find(".temperature").text(temp);
                 $(this).find(".humidity").text(humidity);
 
-                console.log(Resdata)
+                
 
             })
             
