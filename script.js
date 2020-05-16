@@ -2,14 +2,17 @@
 let apiKey = "f61c25ccc3ebc66abfbc574449b8e000";
 let cityName;
 let searchCity = "";
-let cityWeather = {};
+let cityWeather = [];
 
 // set the event listener...
 $("#search-button").on("click", function (event) {
     event.preventDefault();
     searchCity = $("#search-city").val().trim();
-
+    console.log(searchCity);
+    cityWeather.push(searchCity);
     getWeatherByCity()
+    renderCityBtn();
+
 });
 
 //  this function calls out to 2 api's to get all of the data for the main card.
@@ -86,6 +89,13 @@ function getWeatherByCity() {
 
         });
     });
+}
+function renderCityBtn() {
+    for (let i = 0; i < cityWeather.length; i++) {
+        let cityBtn = $("<button>").text(cityWeather[i]);
+        $(".button-storage").append(cityBtn);
+
+    }
 }
 
 
