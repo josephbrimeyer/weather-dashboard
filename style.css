@@ -1,60 +1,67 @@
 #nav {
-    color: white;
-    text-align: center;
+  color: white;
+  text-align: center;
 }
 
 h1 {
-    text-align: center;
-} 
+  text-align: center;
+}
 
 h4 {
-    color: darkgreen;
-    font: bold;
+  color: darkgreen;
+  font: bold;
 }
 
 h6 {
-    color: darkblue;
-    font: bold;
+  color: darkblue;
+  font: bold;
 }
 
 .jumbotron {
-    background-color: burlywood;
+  background-color: burlywood;
 }
 
 #main-card {
-    background-color: silver;
+  background-color: silver;
 }
 
 .five-day {
-    background-color: lightskyblue;
+  background-color: lightskyblue;
 }
 
 .green {
-    color: green;
-    color: white;
-    width: 75px;
+  color: green;
+  color: white;
+  width: 75px;
 }
 
 .yellow {
-    background-color: yellow;
-    color: white;
-    width: 75px; 
+  background-color: yellow;
+  color: white;
+  width: 75px;
 }
 
 .orange {
-    background-color: darkorange;
-    color: white;
-    width: 75px;
+  background-color: darkorange;
+  color: white;
+  width: 75px;
 }
 
 .red {
-    background-color: red;
-    color: white;
-    width: 75px;
+  background-color: red;
+  color: white;
+  width: 75px;
 }
 
 .purple {
-    background-color: purple;
-    color: white;
-    
+  background-color: purple;
+  color: white;
+}
+#searcher {
+  background-image: url("66_daily_forecast.png");
+  height: 100%;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
